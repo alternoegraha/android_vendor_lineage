@@ -295,6 +295,10 @@ PRODUCT_PACKAGES += \
     TrichromeLibrary \
     TrichromeWebView
 
+# Disable MTE Async for system server
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.arm64.memtag.system_server?=off
+
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
 
