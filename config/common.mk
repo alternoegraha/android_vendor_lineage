@@ -301,3 +301,7 @@ include vendor/lineage/config/version.mk
 PRODUCT_VENDOR_PROPERTIES += \
     ro.egl.blobcache.multifile=true \
     ro.egl.blobcache.multifile_limit=33554432
+
+# Disable MTE Async for system server
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.arm64.memtag.system_server?=off
