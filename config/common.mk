@@ -1,6 +1,13 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
+ifeq ($(WITH_GMS),true)
+# AOSPA vendor/google/gms
+$(call inherit-product-if-exists, vendor/google/gms/config.mk)
+# MTG
+$(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
+endif
+
 PRODUCT_BRAND ?= LineageOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
