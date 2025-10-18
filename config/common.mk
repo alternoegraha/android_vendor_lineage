@@ -126,7 +126,7 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 
 ifneq ($(TARGET_DISABLE_EPPE),true)
 # Require all requested packages to exist
-$(call enforce-product-packages-exist-internal,$(lastword $(_include_stack)),product_manifest.xml rild Calendar android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
+$(call enforce-product-packages-exist-internal,$(lastword $(_include_stack)),product_manifest.xml rild Calendar android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package webview)
 endif
 
 # Bootanimation
@@ -139,8 +139,7 @@ PRODUCT_PACKAGES += \
 # Lineage packages
 ifeq ($(PRODUCT_IS_ATV),)
 PRODUCT_PACKAGES += \
-    ExactCalculator \
-    Jelly
+    ExactCalculator
 endif
 
 ifeq ($(PRODUCT_IS_AUTOMOTIVE),)
@@ -276,6 +275,12 @@ CUSTOM_LOCALES += \
     gd_GB \
     cy_GB \
     fur_IT
+
+# Vanadium
+PRODUCT_PACKAGES += \
+    TrichromeChrome \
+    TrichromeLibrary \
+    TrichromeWebView
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/crowdin/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
