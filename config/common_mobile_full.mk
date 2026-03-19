@@ -32,8 +32,7 @@ PRODUCT_PACKAGES += \
 
 # Fonts
 PRODUCT_PACKAGES += \
-    fonts_customization.xml \
-    FontGoogleSansFlexOverlay
+    fonts_customization.xml
 
 # Include Lineage LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/lineage/overlay/dictionaries
