@@ -132,7 +132,7 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 
 ifneq ($(TARGET_DISABLE_EPPE),true)
 # Require all requested packages to exist
-$(call enforce-product-packages-exist-internal,$(lastword $(_include_stack)),product_manifest.xml rild Calendar android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package webview)
+$(call enforce-product-packages-exist-internal,$(lastword $(_include_stack)),product_manifest.xml rild Calendar android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
 endif
 
 # Disable dexpreopt minidebuginfo
@@ -158,7 +158,8 @@ PRODUCT_PACKAGES += \
 # Lineage packages
 ifeq ($(PRODUCT_IS_ATV),)
 PRODUCT_PACKAGES += \
-    ExactCalculator
+    ExactCalculator \
+    Jelly
 endif
 
 ifeq ($(PRODUCT_IS_AUTOMOTIVE),)
@@ -296,12 +297,6 @@ CUSTOM_LOCALES += \
     cy_GB \
     fur_IT \
     nn_NO
-
-# Vanadium
-PRODUCT_PACKAGES += \
-    TrichromeChrome \
-    TrichromeLibrary \
-    TrichromeWebView
 
 # Disable MTE Async for system server
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
